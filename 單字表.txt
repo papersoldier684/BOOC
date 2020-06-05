@@ -1,0 +1,10 @@
+<單字表>
+document 文件
+element  元素
+canvas   畫布
+init = initialize = 初始化
+frame    框/幀
+
+<語法解釋>
+h1~h6　　html語法 => 標題
+div　　  html語法 => 物件
