@@ -1,17 +1,19 @@
 //順序hen重要
 var audio = new Audio('Æsir - CHAOS + V.mp3');
 audio.play();
-//
+//撥放音樂
 
 let box = document.createElement('div');
 box.style="display:flex; justify-content:center";
 document.body.appendChild(box);
+//新增一個元素，名為box，使用flex，將style設為center
 
 let btpause = document.createElement('button');
 btpause.style.width = 100;
 btpause.style.height = 20;
 btpause.innerHTML = "暫停";
 box.appendChild(btpause);
+//新建一個按鈕，名為btpause，設定寬與高、顯示內容，放置到box
 
 var playstatus = 1;
 btpause.addEventListener("click",()=>{
@@ -26,7 +28,45 @@ btpause.addEventListener("click",()=>{
 		playstatus = 1;
 	}
 });
+//新增一個變數playstatus = 1，設定btpause的活動監聽，當click，如果=1，切換顯示內容為播放，不是的話則顯暫停
 
+
+
+document.addEventListener("keydown", logKey => {
+  if (logKey.isComposing || logKey.keyCode === 70) {
+	warehouse.ctx.fillStyle = "rgba(100,200,200,0.9)";
+	warehouse.ctx.fillRect(102/*從左至右的距離*/,662/*從上至下的距離*/, 196/*寬*/, 36/*高*/);
+  }
+  else  if (logKey.isComposing || logKey.keyCode === 71) {
+	warehouse.ctx.fillStyle = "rgba(100,200,200,0.9)";
+	warehouse.ctx.fillRect(402,662, 196, 36);
+  }
+  else if (logKey.isComposing || logKey.keyCode === 72) {
+	warehouse.ctx.fillStyle = "rgba(100,200,200,0.9)";
+	warehouse.ctx.fillRect(702,662, 196, 36);
+  }
+  else if (logKey.isComposing || logKey.keyCode === 74) {
+	warehouse.ctx.fillStyle = "rgba(100,200,200,0.9)";
+	warehouse.ctx.fillRect(1002,662, 196, 36);
+  }
+});
+//新增活動監聽，按下指定按鍵，在指定位置顯示指定顏色色塊
+
+document.addEventListener("keyup", logKey => {
+  if (logKey.isComposing || logKey.keyCode === 70) {
+	warehouse.ctx.clearRect(102/*從左至右的距離*/,662/*從上至下的距離*/, 196/*寬*/, 36/*高*/);
+  }
+  else if (logKey.isComposing || logKey.keyCode === 71) {
+	warehouse.ctx.clearRect(402,662, 196, 36);
+  }
+  else if (logKey.isComposing || logKey.keyCode === 72) {
+	warehouse.ctx.clearRect(702,662, 196, 36);
+  }
+  else if (logKey.isComposing || logKey.keyCode === 74) {
+	warehouse.ctx.clearRect(1002,662, 196, 36);
+  }
+});
+//新增活動監聽，放開指定按鍵，在指定位置清除色塊
 
 let scorevalues = 0;
 let combovalues = 0;
@@ -66,14 +106,14 @@ gamecanvas，放至mainwindow裡
 mainwindow，放至body裡
 */
 
+
+
 warehouse(canvas,ctx);
 //執行warehouse函數
 
 function warehouse(x,y) {
 	warehouse.canvas = x;
 	warehouse.ctx = y;
-	
-	warehouse.keys = [70,71,72,74];
 	
 	warehouse.ctx.lineWidth = 3;//線條粗細
 	warehouse.ctx.strokeStyle = "#193C63";//顏色
@@ -85,25 +125,10 @@ function warehouse(x,y) {
 	//打擊鍵	
 	
 	warehouse.ctx.strokeStyle = "#193C63";//顏色
-	warehouse.ctx.moveTo(20, 640);//開始
-	warehouse.ctx.lineTo(1260, 640);//結束
+	warehouse.ctx.moveTo(20, 640);//線的開始點
+	warehouse.ctx.lineTo(1260, 640);//線的結束點
 	warehouse.ctx.stroke();
 	//打擊線
+	
+	
 }
-
-/*
-var song;
-var button;
-
-function music() {
-	song= loadSound("Æsir - CHAOS + V.mp3",loaded);
-	button = createButton("播放");
-	button.mousePressed(touchplaying);
-	console.log("2");
-}
-
-function touchplaying() {
-	song.play();
-		console.log("2");
-}
-*/
