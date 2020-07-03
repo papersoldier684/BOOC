@@ -106,8 +106,6 @@ gamecanvas，放至mainwindow裡
 mainwindow，放至body裡
 */
 
-
-
 warehouse(canvas,ctx);
 //執行warehouse函數
 
@@ -130,5 +128,5 @@ function warehouse(x,y) {
 	warehouse.ctx.stroke();
 	//打擊線
 	
-	
+	warehouse.flag = "";
 }

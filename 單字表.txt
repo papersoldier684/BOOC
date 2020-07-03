@@ -4,7 +4,16 @@ element  元素
 canvas   畫布
 init = initialize = 初始化
 frame    框/幀
+length   長度
+Status   狀態
+compile  編譯
+adjusted 已調整
+satisfy  滿足
+leaf     葉
 
 <語法解釋>
 h1~h6　　html語法 => 標題
 div　　  html語法 => 物件
+
+<演算法名詞解釋>
+MAX Heap 根比所有葉大即可
